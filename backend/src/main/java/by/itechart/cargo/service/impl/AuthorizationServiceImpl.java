@@ -73,13 +73,25 @@ public class AuthorizationServiceImpl implements AuthorizationService {
 
     @Override
     public AuthorizationResponse login(AuthorizationRequest request) throws NotFoundException {
-
         final String email = request.getEmail();
         final String password = request.getPassword();
 
         final User user = userRepository.findByEmail(email).orElseThrow(() -> new NotFoundException(USER_NOT_FOUND_MESSAGE));
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
         final String token = jwtTokenUtil.createToken(email, user.getRoles());
+        user.setOnline(true);
+
+        final UserResponse userResponse = UserResponse.toUserResponse(user);
+
+        return new AuthorizationResponse(token, userResponse, ClientCompanyDTO.fromClientCompany(user.getClientCompany()));
+    }
+
+    @Override
+    public AuthorizationResponse oauthLogin(String email) throws NotFoundException {
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new NotFoundException(USER_NOT_FOUND_MESSAGE));
+        String token = jwtTokenUtil.createToken(user.getEmail(), user.getRoles());
+
+//        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, user.getPassword()));
         user.setOnline(true);
 
         final UserResponse userResponse = UserResponse.toUserResponse(user);
@@ -199,7 +211,6 @@ public class AuthorizationServiceImpl implements AuthorizationService {
                 .orElseThrow(() -> new NotFoundException(String.format("User with email %s doesn't exist", detailsDb.getEmail())));
 
         detailsDb.setReset(true);
-
     }
 
 }

@@ -13,6 +13,8 @@ public interface AuthorizationService {
 
     AuthorizationResponse login(AuthorizationRequest request) throws NotFoundException;
 
+    AuthorizationResponse oauthLogin(String email) throws NotFoundException;
+
     void logout();
 
     void registration(UserSaveRequest request) throws NotFoundException, AlreadyExistException, IncorrectPasswordException;

@@ -181,6 +181,7 @@ export const Header = connect(mapStateToProps, mapActionsToProps)((props) => {
                 <div className={classes.spaceAround}>
                     {renderUserPhoto()}
                 </div>
+                <a href={"http://localhost:8080/oauth2/authorization/github"}>Log with github</a>
                 <LoginButton/>
             </Toolbar>
             {toast}

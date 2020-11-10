@@ -35,6 +35,7 @@ import RegistrationForm from "./forms/registration/registration-form";
 import ChangePasswordForm from "./forms/reset-password-form/reset-password";
 import {Greeting} from "./parts/greeting/greeting";
 import {OwnerContent} from "./roles/owner/owner-content";
+import {TokenParser} from "./TokenParser";
 
 
 export default function App() {
@@ -46,6 +47,10 @@ export default function App() {
     const handleMenuClose = () => {
         setOpenMenu(false);
     };
+
+    const fetchToken = () => {
+        fetch("/oauth2/authorization/github").then(res => res.json()).then(res => console.log(res));
+    }
 
     return (
         <div className="App">
@@ -61,6 +66,7 @@ export default function App() {
                 <Switch>
                     <Route exact path="/" component={WelcomeBody}/>
                     <Route exact path="/info" component={InfoBody}/>
+                    <Route exact path="/parse-token" component={TokenParser}/>
                     <Route exact path="/email" component={SendMailBody}/>
                     <Route exact path="/contacts" component={ContactsBody}/>
                     <Route exact path="/registration" component={RegistrationForm}/>
