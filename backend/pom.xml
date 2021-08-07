@@ -19,7 +19,7 @@
         <postgre.sql.version>42.2.15</postgre.sql.version>
         <jsonwebtoken.version>0.9.1</jsonwebtoken.version>
         <aws.version>1.11.750</aws.version>
-        <apache.io.version>2.6</apache.io.version>
+        <apache.io.version>[2.7,)</apache.io.version>
         <selenium.version>3.141.59</selenium.version>
         <webdriver.version>4.2.2</webdriver.version>
         <appache.commons.lang.version>3.9</appache.commons.lang.version>
