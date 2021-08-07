@@ -74,12 +74,12 @@ ROLE_COMPANY_OWNER | owner@gmail.com | root |
 ## Screenshots
 * Login page:
 
-![image](/../screenshots/images/login.png "Login")
+![image](https://github.com/BeG-by/CargoService/raw/screenshots/images/login.png "Login")
 
 * Users table:
 
-![image](/../screenshots/images/users.png "Users table")
+![image](https://github.com/BeG-by/CargoService/raw/screenshots/images/users.png "Users table")
 
 * Personal cabinet:
 
-![image](/../screenshots/images/cabinet.png "Account")
+![image](https://github.com/BeG-by/CargoService/blob/screenshots/images/cabinet.png "Account")
