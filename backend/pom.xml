@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <postgre.sql.version>42.2.15</postgre.sql.version>
+        <postgre.sql.version>42.3.3</postgre.sql.version>
         <jsonwebtoken.version>0.9.1</jsonwebtoken.version>
         <aws.version>1.11.750</aws.version>
         <apache.io.version>[2.7,)</apache.io.version>
